@@ -10,8 +10,12 @@ require 'rake/gempackagetask'
 require 'rake/rdoctask'
 require 'rake/testtask'
 
+task :test do
+  puts "Hello World!"
+end
+
 spec = Gem::Specification.new do |s|
-  s.name = 'ruby-rake-application'
+  s.name = 'scrap-coach_details'
   s.version = '0.0.1'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
@@ -35,7 +39,7 @@ Rake::RDocTask.new do |rdoc|
   files =['README', 'LICENSE', 'lib/**/*.rb']
   rdoc.rdoc_files.add(files)
   rdoc.main = "README" # page to start on
-  rdoc.title = "ruby-rake-application Docs"
+  rdoc.title = "scrap-coach_details Docs"
   rdoc.rdoc_dir = 'doc/rdoc' # rdoc output folder
   rdoc.options << '--line-numbers'
 end
