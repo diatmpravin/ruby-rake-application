@@ -10,8 +10,24 @@ require 'rake/gempackagetask'
 require 'rake/rdoctask'
 require 'rake/testtask'
 
+#TEST TASK
 task :test do
   puts "Hello World!"
+end
+
+#TASK DEPENDENCIES
+task :build => [:generate_html, :copy_images]
+task :generate_html => [:create_directories]
+task :copy_images => [:create_directories]
+task :create_directories do
+  puts 'thanks'
+end
+
+#TASK ACTION
+task :taks_action => [:generate_html]
+
+task :generate_html => [:create_directories] do
+  system %{./runwpb rake.wpb}
 end
 
 spec = Gem::Specification.new do |s|
