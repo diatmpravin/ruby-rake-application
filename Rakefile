@@ -24,11 +24,29 @@ task :create_directories do
 end
 
 #TASK ACTION
-task :taks_action => [:generate_html]
+task :task_action => [:generate_file]
 
-task :generate_html => [:create_directories] do
+task :generate_file do
   system %{./runwpb rake.wpb}
 end
+
+# TASK ACTION AND DEPENDENCIES
+task :a => [:b, :c] do
+ puts "a"
+end
+
+task :b => [:d]     do
+ puts "b"
+end
+
+task :c => [:d]     do
+ puts "c" 
+end
+
+task :d             do
+ puts "d"
+end
+
 
 spec = Gem::Specification.new do |s|
   s.name = 'scrap-coach_details'
